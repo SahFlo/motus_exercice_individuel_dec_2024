@@ -1,0 +1,60 @@
+let base = "dictionnaire"; //mot à deviner
+let guess = document.getElementById("guess").value
+const wellPlaced = document.getElementById("well-placed") //on allègera tout ça en V2 
+const missPlaced = document.getElementById ("miss-placed")
+const notInWord = document.getElementById("not-in-word")
+
+//Une fonction pour découper le mot et stocker le résultat
+function splitGuess(){
+  let arrayGuess = guess.split("")
+}
+
+//Une fonction pour découper la base et stocker le résultat
+
+
+//Une fonction pour comparer et afficher les bien placés, mal placés et victoire
+
+function compareGuessToBase() {
+  // TODO: fix jeu sensible à la casse.
+   //je récupère l'input
+  if (guess === base) {
+    return true;
+    //condition de victoire
+  } else {
+    let wellPlaced = [];
+    let notInWord = [];
+    let missplaced = [];
+
+    let arrayBase = base.split("");
+    let arrayWord = guess.split("");
+
+    for (let i = 0; i < arrayBase.length - 1; i++) {
+      if (arrayBase[i] === arrayWord[i]) {
+        wellPlaced.push(arrayguess[i]);
+      } else {
+        missplaced.push(arrayguess[i]);
+      }
+    }
+
+    for (const character of arrayGuess) {
+      if (arrayBase.includes(character) === false) {
+        notInWord.push(character);
+      }
+    }
+
+    return {
+      wellPlaced: wellPlaced,
+      missplaced: missplaced,
+      notInWord: notInWord,
+    };
+  }
+}
+
+function guess() {
+
+  document.getElementById("well-placed").innerText = "Bien placé: " + result.wellPlaced.join(", ");
+  document.getElementById("miss-placed").innerText = "Mal placé: " + result.missplaced.join(", ");
+  document.getElementById("not-in-word").innerText = "Pas dans le mot: " + result.notInWord.join(", ");
+  document.getElementById("win").innerText = "Vous avez gagné";
+
+}
